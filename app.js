@@ -5,9 +5,14 @@ const { result } = require('lodash');
 const blogRoutes=require('./routes/blogRoutes')
 
 //invoking to create an instance of express app
+require('dotenv').config();
+
 const app=express();
 
-const db = 'mongodb+srv://siddarth:siddarthmongodb@cluster0.axazbkg.mongodb.net/nodetuts';
+
+// const db = 'mongodb+srv://siddarth:siddarthmongodb@cluster0.axazbkg.mongodb.net/nodetuts';
+const db = process.env.MONGO_URI;
+
 mongoose.connect(db)
 .then((result)=>{
     console.log('successful connected to db')
