@@ -4,23 +4,50 @@
 <body>
   <%- include("../partials/nav.ejs") %>
 
-  <div class="blogs content">
-<h2>✨ The Feed – All the 🔥 Blogs</h2>
+  <!-- 🌟 Banner Welcome -->
+  <div class="featured-banner">
+    <h1>💬 Welcome to the Vibe Zone</h1>
+    <p>Where thoughts spill louder than tea. 🫖</p>
+  </div>
 
+  <!-- 💭 Quote of the Day -->
+  <div class="quote-box">
+    <p id="quoteText">💭 Loading daily wisdom...</p>
+  </div>
+
+  <!-- 📚 Blog List -->
+  <div class="blogs content">
+    <h2>✨ The Feed – All the 🔥 Blogs</h2>
     <% if (blogs.length > 0) { %>
       <% blogs.forEach(blog => { %>
         <a class="single" href="/blogs/<%= blog._id %>">
-<h3 class="title">📝 <%= blog.title %></h3>
-<p class="snippet">💬 <%= blog.snippet %></p>
-
+          <h3 class="title">📝 <%= blog.title %></h3>
+          <p class="snippet">💬 <%= blog.snippet %></p>
         </a>
       <% }) %>
     <% } else { %>
-      <p>There are no blogs to display...</p>
+      <p>😢 No blogs here yet... Be the first to spill the tea!</p>
     <% } %>
-    
   </div>
 
   <%- include("../partials/footer.ejs") %>
+
+  <!-- ✨ Quote Logic -->
+  <script>
+    const quotes = [
+      "💭 Code. Eat. Sleep. Yeet.",
+      "🔥 Push code, not people.",
+      "🚀 Dream in pixels. Deploy in style.",
+      "💡 Your vibe attracts your tribe.",
+      "🧠 Syntax is temporary, logic is forever.",
+      "📦 npm install self-confidence",
+      "🌈 Debugging is just solving puzzles... with stress.",
+      "👾 Ctrl + Z is my superpower."
+    ];
+
+    const quoteEl = document.getElementById('quoteText');
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    quoteEl.innerText = quotes[randomIndex];
+  </script>
 </body>
 </html>

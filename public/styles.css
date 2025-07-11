@@ -7,13 +7,14 @@ body {
   font-family: 'Fredoka', sans-serif;
   background-color: #fffdf7;
   color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 p, h1, h2, h3, a, ul {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  color: #222;
+  color: inherit;
 }
 
 /* nav & footer styles */
@@ -45,10 +46,23 @@ nav p, nav a {
 }
 
 footer {
-  color: #999;
+  color: #666;
   text-align: center;
   margin: 80px auto 20px;
-  font-size: 0.9em;
+  font-size: 0.95em;
+  padding-top: 20px;
+  border-top: 1px dashed #ddd;
+}
+
+footer a {
+  color: #ff4081;
+  text-decoration: none;
+  margin: 0 5px;
+  font-weight: 500;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 h2 {
@@ -132,4 +146,79 @@ textarea {
 }
 .create-blog button:hover {
   background: linear-gradient(to right, #ff4b2b, #ff416c);
+}
+
+.create-blog button::after {
+  content: ' 🚀';
+  transition: 0.2s ease;
+}
+.create-blog button:hover::after {
+  content: ' 💥 Sent!';
+}
+
+/* Banner */
+.featured-banner {
+  background: linear-gradient(to right, #ff9a9e, #fad0c4);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.featured-banner h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #222;
+}
+.featured-banner p {
+  font-size: 1.2em;
+  color: #444;
+}
+
+/* Quote */
+.quote-box {
+  margin: 30px 0;
+  padding: 15px 25px;
+  background-color: #f0f0f0;
+  border-left: 5px solid #ff4081;
+  font-style: italic;
+  border-radius: 10px;
+  color: #333;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+.dark-mode nav,
+.dark-mode footer {
+  border-color: #333;
+  color: #aaa;
+}
+.dark-mode a,
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode ul {
+  color: #f0f0f0;
+}
+.dark-mode .blogs a {
+  border-left-color: #bb86fc;
+}
+.dark-mode .create-blog button {
+  background: linear-gradient(to right, #3333cc, #9900cc);
+}
+.dark-mode .featured-banner h1,
+.dark-mode .featured-banner p {
+  color: #eee;
+}
+.dark-mode .quote-box {
+  background-color: #2b2b2b;
+  border-left-color: #bb86fc;
+  color: #ccc;
+}
+.dark-mode footer a {
+  color: #bb86fc;
 }
